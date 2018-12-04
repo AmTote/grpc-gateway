@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:b62a3c5b37db602bf1158e921da1a762315a4c37855fd418a14498aa87a342d5"
+  name = "cloud.google.com/go"
+  packages = ["civil"]
+  pruneopts = "UT"
+  revision = "74b12019e2aa53ec27882158f59192d7cd6d1998"
+  version = "v0.33.1"
+
+[[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
   name = "github.com/ghodss/yaml"
   packages = ["."]
@@ -100,12 +108,13 @@
   version = "v0.3.0"
 
 [[projects]]
-  digest = "1:46be2f6b4d4e4b89f8102668902e68013234da1684fc78da602da95e745f285d"
+  digest = "1:ffbb2e39fc0507e705d53b817295c9b03647bdabf2cca80af930a53944d4ad6a"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
     "googleapis/rpc/errdetails",
     "googleapis/rpc/status",
+    "googleapis/type/date",
     "protobuf/field_mask",
   ]
   pruneopts = "UT"
@@ -157,6 +166,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "cloud.google.com/go/civil",
     "github.com/ghodss/yaml",
     "github.com/go-resty/resty",
     "github.com/golang/glog",
@@ -178,6 +188,7 @@
     "google.golang.org/genproto/googleapis/api/annotations",
     "google.golang.org/genproto/googleapis/rpc/errdetails",
     "google.golang.org/genproto/googleapis/rpc/status",
+    "google.golang.org/genproto/googleapis/type/date",
     "google.golang.org/genproto/protobuf/field_mask",
     "google.golang.org/grpc",
     "google.golang.org/grpc/codes",

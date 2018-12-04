@@ -20,6 +20,10 @@ var wktSchemas = map[string]schemaCore{
 		Type:   "string",
 		Format: "date-time",
 	},
+	".google.type.Date": schemaCore{
+		Type:   "string",
+		Format: "date",
+	},
 	".google.protobuf.Duration": schemaCore{
 		Type: "string",
 	},
@@ -208,6 +212,8 @@ func renderMessagesAsDefinition(messages messageMap, d swaggerDefinitionsObject,
 	for name, msg := range messages {
 		switch name {
 		case ".google.protobuf.Timestamp":
+			continue
+		case ".google.type.Date":
 			continue
 		case ".google.protobuf.Duration":
 			continue

@@ -5,11 +5,12 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-
+"cloud.google.com/go/civil"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes/duration"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/golang/protobuf/ptypes/wrappers"
+	"google.golang.org/genproto/googleapis/type/date"
 )
 
 // String just returns the given string.
@@ -208,6 +209,20 @@ func BytesSlice(val, sep string) ([][]byte, error) {
 func Timestamp(val string) (*timestamp.Timestamp, error) {
 	var r *timestamp.Timestamp
 	err := jsonpb.UnmarshalString(val, r)
+	return r, err
+}
+
+func Date(val string) (*date.Date, error) {
+	var r *date.Date
+	r = new(date.Date)
+
+	return r, err
+}
+
+func CivilDate(val string) (*civil.Date, error) {
+	var r *civil.Date
+	r = new(civil.Date)
+
 	return r, err
 }
 
