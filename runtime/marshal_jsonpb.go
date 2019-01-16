@@ -34,7 +34,21 @@ func (j *JSONPb) Marshal(v interface{}) ([]byte, error) {
 	if err := j.marshalTo(&buf, v); err != nil {
 		return nil, err
 	}
-	return buf.Bytes(), nil
+	return rewriteJSON(buf.Bytes())
+}
+
+func rewriteJSON(in []byte) ([]byte, error) {
+	var m map[string]interface{}
+	if err := json.Unmarshal(in, &m); err != nil {
+		return in, err
+	}
+	var b bytes.Buffer
+	e := json.NewEncoder(&b)
+	e.SetEscapeHTML(false)
+	if err := e.Encode(m); err != nil {
+		return in, err
+	}
+	return b.Bytes(), nil
 }
 
 func (j *JSONPb) marshalTo(w io.Writer, v interface{}) error {

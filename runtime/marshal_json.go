@@ -36,7 +36,9 @@ func (j *JSONBuiltin) NewDecoder(r io.Reader) Decoder {
 
 // NewEncoder returns an Encoder which writes JSON stream into "w".
 func (j *JSONBuiltin) NewEncoder(w io.Writer) Encoder {
-	return json.NewEncoder(w)
+	enc := json.NewEncoder(w)
+	enc.SetEscapeHTML(false)
+	return enc
 }
 
 // Delimiter for newline encoded JSON streams.

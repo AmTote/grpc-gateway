@@ -64,6 +64,7 @@ func encodeSwagger(file *wrapper) *plugin.CodeGeneratorResponse_File {
 	var formatted bytes.Buffer
 	enc := json.NewEncoder(&formatted)
 	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
 	enc.Encode(*file.swagger)
 	name := file.fileName
 	ext := filepath.Ext(name)
