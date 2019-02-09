@@ -621,6 +621,9 @@ func renderServices(services []*descriptor.Service, paths swaggerPathsObject, re
 						if !ok {
 							return fmt.Errorf("unknown field type %v", pt)
 						}
+						//need to parse the schema to get the description should it exist
+						schema := schemaOfField(parameter.Target, reg, customRefs)
+						desc = schema.Description
 					}
 
 					if parameter.IsRepeated() {
