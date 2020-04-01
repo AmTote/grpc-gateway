@@ -2,6 +2,8 @@ module github.com/grpc-ecosystem/grpc-gateway
 
 go 1.14
 
+replace github.com/golang/protobuf => github.com/amtote/protobuf v1.4.0-rc.5
+
 require (
 	github.com/antihax/optional v0.0.0-20180407024304-ca021399b1a6
 	github.com/ghodss/yaml v1.0.0
